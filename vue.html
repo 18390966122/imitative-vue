@@ -8,8 +8,26 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" id="inputData">
-        {{inputData}}
+        <input type="text" id="inputData" v-model="testText" style="margin-right: 20px">
+        {{testText}}
     </div>
+    <script src="./cors/watcher.js"></script>
+    <script src="./cors/compile.js"></script>
+    <script src="./cors/observer.js"></script>
+    <script>
+        function Vue (options) {
+            this.el = options.el
+            this.data = options.data
+            observer(this.data, this)
+            let fragment = new Compile(document.getElementById(this.el), this)
+            document.getElementById(this.el).appendChild(fragment)
+        }
+        new Vue({
+            el: 'app',
+            data: {
+                testText: 'this is a simple mvvm frame'
+            }
+        })
+    </script>
 </body>
 </html>
