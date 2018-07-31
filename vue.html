@@ -10,6 +10,17 @@
     <div id="app">
         <input type="text" id="inputData" v-model="testText" style="margin-right: 20px">
         {{testText}}
+        <select v-model="options" style="margin: 20px;">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        {{options}}
+        <br/>
+        <hr/>
+        <div>这是测试额外字符的 {{options}}</div>
+        <br/>
+        {{one.three.fourth}}
     </div>
     <script src="./cors/watcher.js"></script>
     <script src="./cors/compile.js"></script>
@@ -25,7 +36,14 @@
         new Vue({
             el: 'app',
             data: {
-                testText: 'this is a simple mvvm frame'
+                testText: 'this is a simple mvvm frame',
+                options: 3,
+                one: {
+                    two: 'test',
+                    three: {
+                        fourth: 'haha'
+                    }
+                }
             }
         })
     </script>
