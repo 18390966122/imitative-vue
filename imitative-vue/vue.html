@@ -8,6 +8,7 @@
 </head>
 <body>
     <div id="app">
+        {{one.three.fourth}}  {{options}}
         <input type="text" id="inputData" v-model="testText" style="margin-right: 20px">
         {{testText}}
         <select v-model="options" style="margin: 20px;">
@@ -18,9 +19,8 @@
         {{options}}
         <br/>
         <hr/>
-        <div>这是测试额外字符的 {{options}}</div>
+        <div>{{testText}}这是测试额外{{options}}字符的 {{options}}</div>
         <br/>
-        {{one.three.fourth}}
     </div>
     <script src="./cors/watcher.js"></script>
     <script src="./cors/compile.js"></script>
